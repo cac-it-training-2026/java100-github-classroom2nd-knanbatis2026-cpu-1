@@ -83,9 +83,13 @@ public class Explorer {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-
 		//ここにwhile文、if文を利用した処理を記述
-
+		while (alligator < 3) {
+			System.out.println("隊長");
+			System.out.print("どの手を出して通り抜けますか/n"
+					+ "（グー… 1 : チョキ… 2 : パー… 3）＞");
+			hand = Integer.parseInt(br.readLine());
+		}
 
 		if (i == 3) {
 			System.out.println("隊長：");

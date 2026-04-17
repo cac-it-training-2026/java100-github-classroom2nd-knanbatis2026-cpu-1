@@ -99,24 +99,4 @@ public class Detective {
 		System.out.println((num == 1) ? "不正解です。" : "正解です。");
 
 	}
-
-	public static class Person {
-		private int weight;
-		private int height;
-
-		public Person(int w, int h) {
-			this.weight = w;
-			this.height = h;
-		}
-
-		public int getWeight() {
-			return weight;
-		}
-
-		public int getHeight() {
-			return height;
-		}
-
-	}
-
 }

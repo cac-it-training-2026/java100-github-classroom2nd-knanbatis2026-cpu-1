@@ -63,6 +63,13 @@ public class Explorer {
 		do {
 			lithograph = (int) (Math.random() * 10);
 			i++;
+			if (lithograph == 3) {
+				System.out.println("隊長：");
+				System.out.println(("やったー！3が出たよ！"));
+				break;
+			} else {
+				System.out.println(lithograph + "だった...（" + (i - 1) + "時間経過）");
+			}
 
 		} while (i < 6);
 

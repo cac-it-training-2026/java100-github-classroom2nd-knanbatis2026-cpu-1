@@ -95,21 +95,20 @@ public class WarehouseManager {
 
 		System.out.print("データ型を選んでください（1...文字、2...文字列、3...数値）＞");
 
-
 		//ここに入力処理を記述する。
-
+		int data = Integer.parseInt(br.readLine());
 
 		System.out.print("\n要素数を選んでください（1...1個、2...2個、3...3個）＞");
 
-
 		//ここに入力処理を記述する。
-
+		int num = Integer.parseInt(br.readLine());
 
 		boolean errFlag = false;
 
-
 		//ここに入力値の範囲チェック処理を記述する。
-
+		if (data < 1 || 3 < data || num < 1 || 3 < num) {
+			errFlag = true;
+		}
 
 		if (!errFlag) {
 			System.out.println("\nZ先輩：");
@@ -126,10 +125,28 @@ public class WarehouseManager {
 			String[] strArray = null;
 			int[] intArray = null;
 
-
 			//ここに入力値による分岐および配列要素数の確定、
 			//値の代入処理を記述する。
-
+			switch (data) {
+			case (1):
+				charArray = new char[num];
+				for (int i = 0; i < charArray.length; i++) {
+					charArray[i] = (char) ('a' + i);
+				}
+				break;
+			case (2):
+				strArray = new String[num];
+				for (int i = 0, j = 0; i < strArray.length; i++, j += 3) {
+					strArray[i] = "" + ((char) ('a' + j)) + ((char) ('a' + j + 1)) + ((char) ('a' + j + 2));
+				}
+				break;
+			case (3):
+				intArray = new int[num];
+				for (int i = 0; i < num; i++) {
+					intArray[i] = i + 1;
+				}
+				break;
+			}
 
 			System.out.println("Yさん：");
 			System.out.println("...出来ました。\n");
@@ -139,9 +156,20 @@ public class WarehouseManager {
 
 			System.out.println("Yさん：");
 
-
 			//ここに入力値による分岐および配列要素の表示処理を記述する。
-
+			for (int i = 0; i < num; i++) {
+				switch (data) {
+				case (1):
+					System.out.println(charArray[i]);
+					break;
+				case (2):
+					System.out.println(strArray[i]);
+					break;
+				case (3):
+					System.out.println(intArray[i]);
+					break;
+				}
+			}
 
 			System.out.println("です。\n");
 

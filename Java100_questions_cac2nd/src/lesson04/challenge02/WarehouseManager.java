@@ -156,7 +156,7 @@ public class WarehouseManager {
 
 			System.out.println("Yさん：");
 
-			//ここに入力値による分岐および配列要素の表示処理を記述する。
+			//			ここに入力値による分岐および配列要素の表示処理を記述する。
 			for (int i = 0; i < num; i++) {
 				switch (data) {
 				case (1):

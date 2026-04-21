@@ -54,12 +54,11 @@ public class WarehouseManager {
 		int[] ABKosanArray1 = new int[5];
 		int[] ABKosanArray2 = new int[5];
 
-
 		//ここに重複チェックおよび値の代入処理を記述する①(1～5)
-
+		ABKosanArray1 = initArray(ABKosanArray1.length, 1, 5);
 
 		//ここに重複チェックおよび値の代入処理を記述する②(6～10)
-
+		ABKosanArray2 = initArray(ABKosanArray2.length, 6, 10);
 
 		System.out.println("E主任：");
 		System.out.println("AB興産から新たに預かった荷物と以前から預かっている荷物の");
@@ -88,11 +87,30 @@ public class WarehouseManager {
 		System.out.println("E主任：");
 		System.out.println("その二つの荷物を奇数群、偶数群で入れ替えてください。\n");
 
-
-
 		//ここに奇数群(ABKosanArray1)と偶数群(ABKosanArray2)に振り分ける処理を記述する。
 
+		// 一旦tmp配列にすべていれる
+		int[] tmpArray = new int[ABKosanArray1.length + ABKosanArray2.length];
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+			tmpArray[i] = ABKosanArray1[i];
+		}
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+			tmpArray[i + ABKosanArray1.length] = ABKosanArray2[i];
+		}
 
+		int count1 = 0;
+		int count2 = 0;
+
+		// 振り分け
+		for (int i : tmpArray) {
+			if (i % 2 == 1) {
+				ABKosanArray1[count1] = i;
+				count1++;
+			} else {
+				ABKosanArray2[count2] = i;
+				count2++;
+			}
+		}
 
 		System.out.println("Yさん：");
 		System.out.println("はい、入れ替えました。");
@@ -115,5 +133,40 @@ public class WarehouseManager {
 		}
 		System.out.println("\nです。");
 
+	}
+
+	/**
+	 * 配列に重複無しでx~yの間の値を、arraylength個入れる
+	 * @param arraylength
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public static int[] initArray(int arraylength, int x, int y) {
+		int intputNum = 0;
+		boolean loopFlag = false;
+		int[] intArray = new int[arraylength];
+		if (y - x > arraylength) {
+			System.err.println("誤った引数");
+			return intArray;
+		}
+
+		//ここに重複チェックおよび値の代入処理を記述
+		for (int i = 0; i < intArray.length; i++) {
+			intputNum = (int) ((Math.random() * 100) % (y - x + 1)) + x;
+			for (int j : intArray) {
+				if (j == intputNum) {
+					loopFlag = true;
+					break;
+				}
+			}
+			if (loopFlag) {
+				loopFlag = false;
+				i--;
+				continue;
+			}
+			intArray[i] = intputNum;
+		}
+		return intArray;
 	}
 }

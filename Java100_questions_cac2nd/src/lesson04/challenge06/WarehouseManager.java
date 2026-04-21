@@ -39,9 +39,25 @@ public class WarehouseManager {
 
 		int[] ABKosanArray = new int[5];
 
+		int intputNum = 0;
+		boolean loopFlag = false;
 
 		//ここに重複チェックおよび値の代入処理を記述する
-
+		for (int i = 0; i < ABKosanArray.length; i++) {
+			intputNum = (int) ((Math.random() * 10) % 5) + 1;
+			for (int j : ABKosanArray) {
+				if (j == intputNum) {
+					loopFlag = true;
+					break;
+				}
+			}
+			if (loopFlag) {
+				loopFlag = false;
+				i--;
+				continue;
+			}
+			ABKosanArray[i] = intputNum;
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の入れ替えをお願いします。\n");
@@ -57,9 +73,11 @@ public class WarehouseManager {
 		}
 		System.out.println("\nです。\n");
 
-
 		//ここに値の入れ替え処理を記述する
-
+		// 1 <-> 3
+		ABKosanArray = swapArrayNumber(ABKosanArray, 1, 3);
+		// 2 <-> 4
+		ABKosanArray = swapArrayNumber(ABKosanArray, 2, 4);
 
 		System.out.println("入れ替え後の状態は、");
 		for (int i = 0; i < ABKosanArray.length; i++) {
@@ -70,5 +88,29 @@ public class WarehouseManager {
 		}
 		System.out.println("\nです。");
 
+	}
+
+	/**
+	 * 配列のxとyを入れ替える
+	 * @param intArray
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	static int[] swapArrayNumber(int[] intArray, int x, int y) {
+		int tmp = 0;
+		int[] tmpCount = new int[5];
+		int j = 0;
+		for (int i : intArray) {
+			tmpCount[i - 1] = j;
+			j++;
+		}
+		x--;
+		y--;
+		tmp = intArray[tmpCount[x]];
+		intArray[tmpCount[x]] = intArray[tmpCount[y]];
+		intArray[tmpCount[y]] = tmp;
+
+		return intArray;
 	}
 }

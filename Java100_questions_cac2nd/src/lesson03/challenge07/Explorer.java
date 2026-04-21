@@ -95,12 +95,9 @@ public class Explorer {
 			System.out.println();
 
 			// handの入力の確認
-			switch (hand) {
-			case 1, 2, 3:
-				break;
-			default:
+			if (hand < 1 || 3 < hand) {
 				System.out.println("隊長：");
-				System.err.println("そんな手はありませんよ。もう一度入れてください。");
+				System.out.println("そんな手はありませんよ。もう一度入れてください。\n");
 				continue;
 			}
 
@@ -119,6 +116,7 @@ public class Explorer {
 			default:
 				break;
 			}
+
 			if (hand == alligator) {
 				break;
 			} else {

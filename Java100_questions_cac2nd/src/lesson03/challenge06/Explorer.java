@@ -84,7 +84,7 @@ public class Explorer {
 		System.out.println("隊長：");
 		System.out.println("トラ発見！\n");
 
-		int deepSleepTime = (int) (Math.random() * 10 % 3) + 1;
+		int deepSleepTime = (int) (Math.random() * 3) + 1;
 		int goTime = 0;
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

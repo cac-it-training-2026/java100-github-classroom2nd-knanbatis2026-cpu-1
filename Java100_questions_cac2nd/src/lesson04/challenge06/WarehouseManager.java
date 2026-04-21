@@ -44,7 +44,7 @@ public class WarehouseManager {
 
 		//ここに重複チェックおよび値の代入処理を記述する
 		for (int i = 0; i < ABKosanArray.length; i++) {
-			intputNum = (int) ((Math.random() * 10) % 5) + 1;
+			intputNum = (int) (Math.random() * 5) + 1;
 			for (int j : ABKosanArray) {
 				if (j == intputNum) {
 					loopFlag = true;

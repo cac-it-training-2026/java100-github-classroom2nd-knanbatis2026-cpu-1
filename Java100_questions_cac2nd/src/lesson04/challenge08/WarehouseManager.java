@@ -153,7 +153,7 @@ public class WarehouseManager {
 
 		//ここに重複チェックおよび値の代入処理を記述
 		for (int i = 0; i < intArray.length; i++) {
-			intputNum = (int) ((Math.random() * 100) % (y - x + 1)) + x;
+			intputNum = (int) (Math.random() * (y - x + 1)) + x;
 			for (int j : intArray) {
 				if (j == intputNum) {
 					loopFlag = true;

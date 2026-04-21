@@ -61,7 +61,7 @@ public class Explorer {
 		int damage = 0;
 		for (int i = 0; i < 10; i++) {
 
-			geyser = (int) (Math.random() * 10 % 2);
+			geyser = (int) (Math.random() * 2);
 
 			//ここにif文、continue文を利用した処理を記述
 			if (geyser == 1) {
@@ -70,15 +70,16 @@ public class Explorer {
 				System.out.println("隊長：");
 				System.out.println((i + 1) + "個目。熱湯");
 				System.out.println("うわ熱っ！（ダメージ" + damage + "）\n");
+				if (damage == 6) {
+					break;
+				}
 				continue;
 			} else {
 				System.out.println("隊長：");
 				System.out.println((i + 1) + "個目。セーフ");
 				System.out.println("ラッキー！\n");
 			}
-			if (damage == 6) {
-				break;
-			}
+
 		}
 		if (damage != 6) {
 			System.out.println("洞窟の出口にたどり着きました。");

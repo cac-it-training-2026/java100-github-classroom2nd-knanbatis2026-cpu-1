@@ -115,7 +115,7 @@ public class WarehouseManager {
 		int randomNum;
 
 		for (int i = 0; i < intArray.length; i++) {
-			emptyBox = (int) (Math.random() * 100) % 4;
+			emptyBox = (int) (Math.random() * 4);
 			randomNum = (int) (Math.random() * 10) + 1;
 			if (emptyBox == 0) {
 				intArray[i] = 0;

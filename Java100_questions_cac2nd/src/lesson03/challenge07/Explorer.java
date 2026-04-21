@@ -86,7 +86,7 @@ public class Explorer {
 		//ここにwhile文、if文を利用した処理を記述
 
 		while (i < 3) {
-			alligator = (int) (Math.random() * 10 % 3) + 1;
+			alligator = (int) (Math.random() * 3) + 1;
 
 			System.out.println("隊長：");
 			System.out.print("どの手を出して通り抜けますか\n"

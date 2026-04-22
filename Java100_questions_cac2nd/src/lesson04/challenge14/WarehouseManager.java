@@ -226,7 +226,6 @@ public class WarehouseManager {
 				}
 				System.out.println();
 			}
-
 			int openNum2 = 0;
 
 			//Sさんのどのコンテナをオープンするか決定する処理を記述する。（ランダム）

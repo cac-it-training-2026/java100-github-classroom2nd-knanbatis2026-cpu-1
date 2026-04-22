@@ -72,9 +72,9 @@ public class WarehouseManager {
 		int[] intArray3 = new int[5];
 
 		//ここに配列に値を代入する処理を記述する。(要素はランダム)
-		intArray1 = pushNumber(intArray1.length);
-		intArray2 = pushNumber(intArray2.length);
-		intArray3 = pushNumber(intArray3.length);
+		intArray1 = generateArrayZero(intArray1.length);
+		intArray2 = generateArrayZero(intArray2.length);
+		intArray3 = generateArrayZero(intArray3.length);
 
 		System.out.println("E主任：");
 		System.out.println("MQ運送の件、お願いします。\n");
@@ -102,22 +102,45 @@ public class WarehouseManager {
 		//ここに詰め替え処理を記述する
 		int[] tmpArray = new int[15];
 
+		// tmp配列にすべて入れる
 		for (int i = 0; i < tmpArray.length; i++) {
 			switch (i / 5) {
 			case 0:
 				tmpArray[i] = intArray1[i];
+				intArray1[i] = 0;
 				break;
 			case 1:
 				tmpArray[i] = intArray2[i % 5];
+				intArray2[i % 5] = 0;
 				break;
 			case 2:
 				tmpArray[i] = intArray3[i % 5];
+				intArray3[i % 5] = 0;
 				break;
 			}
 		}
-		for (int i : tmpArray) {
-			System.out.println(i);
+
+		// tmp配列から取り出す
+		int count = 0;
+		for (int i = 0; i < tmpArray.length; i++) {
+			if (tmpArray[i] != 0) {
+				switch (count / 5) {
+				case 0:
+					intArray1[count] = tmpArray[i];
+					count++;
+					break;
+				case 1:
+					intArray2[count % 5] = tmpArray[i];
+					count++;
+					break;
+				case 2:
+					intArray3[count % 5] = tmpArray[i];
+					count++;
+					break;
+				}
+			}
 		}
+		System.out.println(count + "：カウンター");
 
 		System.out.println("Yさん：");
 		System.out.println("直してきました。\n");
@@ -125,14 +148,17 @@ public class WarehouseManager {
 		System.out.print("C...");
 
 		//ここに配列Cの要素をすべて出力する処理を記述する。
+		printArray(intArray1);
 
 		System.out.print("\n\nD...");
 
 		//ここに配列Dの要素をすべて出力する処理を記述する。
+		printArray(intArray2);
 
 		System.out.print("\n\nE...");
 
 		//ここに配列Eの要素をすべて出力する処理を記述する。
+		printArray(intArray3);
 
 		System.out.println("\n\nになりました。\n");
 
@@ -151,7 +177,7 @@ public class WarehouseManager {
 	}
 
 	// 配列に1~10の値を入れる。1/4の確率で0を入れる。
-	public static int[] pushNumber(int arrayLength) {
+	public static int[] generateArrayZero(int arrayLength) {
 		int[] intArray = new int[arrayLength];
 		int emptyBox;
 		int randomNum;

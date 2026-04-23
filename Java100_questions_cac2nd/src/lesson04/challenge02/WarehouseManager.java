@@ -157,18 +157,16 @@ public class WarehouseManager {
 			System.out.println("Yさん：");
 
 			//			ここに入力値による分岐および配列要素の表示処理を記述する。
-			for (int i = 0; i < num; i++) {
-				switch (data) {
-				case (1):
-					System.out.println(charArray[i]);
-					break;
-				case (2):
-					System.out.println(strArray[i]);
-					break;
-				case (3):
-					System.out.println(intArray[i]);
-					break;
-				}
+			switch (data) {
+			case (1):
+				System.out.println(charArray[charArray.length - 1]);
+				break;
+			case (2):
+				System.out.println(strArray[strArray.length - 1]);
+				break;
+			case (3):
+				System.out.println(intArray[intArray.length - 1]);
+				break;
 			}
 
 			System.out.println("です。\n");

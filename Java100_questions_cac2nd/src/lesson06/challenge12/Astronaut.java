@@ -32,30 +32,64 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-
 //ここにOmegalianクラスを記述する
+class Omegalian {
+	private String item;
 
+	private String changeLastChar(char ch) {
+		String[] enNumber = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+		int tmpIndex = 0;
+
+		tmpIndex = Integer.parseInt(String.valueOf(ch));
+		return enNumber[tmpIndex - 1];
+	}
+
+	/**
+	 * @return item
+	 */
+	public String getItem() {
+		return item;
+	}
+
+	/**
+	 * @param item セットする item
+	 */
+	public void setItem(String item) {
+		StringBuffer sb = new StringBuffer(item);
+		if (item.matches(".*[0-9]$")) {
+			char ch = item.charAt(item.length() - 1);
+			String enNumber = changeLastChar(ch);
+
+			sb.replace(item.length() - 1, item.length(), enNumber);
+			item = sb.toString();
+		}
+		this.item = item;
+	}
+
+}
 
 public class Astronaut {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        System.out.print("Ω星人にアイテムを渡してください＞");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String present = br.readLine();
+		System.out.print("Ω星人にアイテムを渡してください＞");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String present = br.readLine();
 
+		//ここに適切な処理を記述する
 
-        //ここに適切な処理を記述する
+		Omegalian omega = new Omegalian();
 
+		String item = null;
 
-        String item = null;
+		//ここに適切な処理を記述する
 
+		omega.setItem(present);
 
-        //ここに適切な処理を記述する
+		item = omega.getItem();
 
-
-        System.out.println("\nΩ星人：");
-        System.out.println("えっ！" + item + "をくれるオメガか！");
-        System.out.println("ありがとうオメガ。");
-    }
+		System.out.println("\nΩ星人：");
+		System.out.println("えっ！" + item + "をくれるオメガか！");
+		System.out.println("ありがとうオメガ。");
+	}
 }

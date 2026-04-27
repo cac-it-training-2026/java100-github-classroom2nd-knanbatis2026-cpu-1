@@ -61,12 +61,15 @@ public class WarehouseManager {
 
 	public static void main(String[] args) {
 
-
 		//ここに必要な配列の宣言を記述する。
-
+		int[] intArray1 = new int[5];
+		int[] intArray2 = new int[5];
+		int[] intArray3 = new int[5];
 
 		//ここに配列に値を代入する処理を記述する。(要素はランダム)
-
+		intArray1 = pushNumber(intArray1.length);
+		intArray2 = pushNumber(intArray2.length);
+		intArray3 = pushNumber(intArray3.length);
 
 		System.out.println("E主任：");
 		System.out.println("MQ運送から預かった荷物の確認をお願いします。\n");
@@ -76,25 +79,50 @@ public class WarehouseManager {
 
 		System.out.print("C...");
 
-
 		//ここに配列Cの要素をすべて出力する処理を記述する。
-
+		printArray(intArray1);
 
 		System.out.print("\n\nD...");
 
-
 		//ここに配列Dの要素をすべて出力する処理を記述する。
-
+		printArray(intArray2);
 
 		System.out.print("\n\nE...");
 
-
 		//ここに配列Eの要素をすべて出力する処理を記述する。
-
+		printArray(intArray3);
 
 		System.out.println("\n\nです。\n");
 
 		System.out.println("E主任：");
 		System.out.println("ご苦労さまでした。");
+	}
+
+	// 配列の中身を表示する
+	public static void printArray(int[] intArray) {
+		for (int i = 0; i < intArray.length; i++) {
+			System.out.print(intArray[i]);
+			if (i < intArray.length - 1) {
+				System.out.print(",");
+			}
+		}
+	}
+
+	// 配列に1~10の値を入れる。1/4の確率で0を入れる。
+	public static int[] pushNumber(int arrayLength) {
+		int[] intArray = new int[arrayLength];
+		int emptyBox;
+		int randomNum;
+
+		for (int i = 0; i < intArray.length; i++) {
+			emptyBox = (int) (Math.random() * 4);
+			randomNum = (int) (Math.random() * 10) + 1;
+			if (emptyBox == 0) {
+				intArray[i] = 0;
+			} else {
+				intArray[i] = randomNum;
+			}
+		}
+		return intArray;
 	}
 }

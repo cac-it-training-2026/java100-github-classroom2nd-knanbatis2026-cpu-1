@@ -72,6 +72,10 @@ public class WarehouseManager {
 		System.out.println("まず始めに文字配列charArrayを作り、a,b,cを格納してください。\n");
 
 		//ここに配列の宣言および値の代入を記述する。
+		char[] charArray = new char[3];
+		charArray[0] = 'a';
+		charArray[1] = 'b';
+		charArray[2] = 'c';
 
 		System.out.println("Yさん：");
 		System.out.println("はい......出来ました。\n");
@@ -80,6 +84,10 @@ public class WarehouseManager {
 		System.out.println("次に文字列配列strArrayを作り、abc,def,ghiを格納してください。\n");
 
 		//ここに配列の宣言および値の代入を記述する。
+		String[] strArray = new String[3];
+		strArray[0] = "abc";
+		strArray[1] = "def";
+		strArray[2] = "ghi";
 
 		System.out.println("Yさん：");
 		System.out.println("はい......出来ました。\n");
@@ -88,6 +96,10 @@ public class WarehouseManager {
 		System.out.println("最後に数値配列intArrayを作り、1,2,3を格納してください。\n");
 
 		//ここに配列の宣言および値の代入を記述する。
+		int[] intArray = new int[3];
+		intArray[0] = 1;
+		intArray[1] = 2;
+		intArray[2] = 3;
 
 		System.out.println("Yさん：");
 		System.out.println("はい......出来ました。\n");
@@ -97,6 +109,7 @@ public class WarehouseManager {
 		System.out.println("Yさん：");
 
 		//ここに出力処理を記述する。
+		System.out.print(charArray[0]);
 
 		System.out.println("です。\n");
 
@@ -105,6 +118,7 @@ public class WarehouseManager {
 		System.out.println("Yさん：");
 
 		//ここに出力処理を記述する。
+		System.out.print(strArray[1]);
 
 		System.out.println("です。\n");
 
@@ -113,6 +127,7 @@ public class WarehouseManager {
 		System.out.println("Yさん：");
 
 		//ここに出力処理を記述する。
+		System.out.print(intArray[2]);
 
 		System.out.println("です。\n");
 		System.out.println("Z先輩：");

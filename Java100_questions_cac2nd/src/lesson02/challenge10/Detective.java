@@ -53,6 +53,14 @@
  ********************************************************************* *
  */
 
+//+ 犯人像
+//犯人は 80kg以上でも、60kg以下でもない
+//犯人は185cmを超えている
+
+//+ 犯行経路
+//X 裏山に向かって延びる道です。人目につき難い道です。
+//O もし、犬が知っている人物なら、住宅街に向かって延びる道です。
+
 package lesson02.challenge10;
 
 import java.io.BufferedReader;
@@ -87,7 +95,8 @@ public class Detective {
 		int num = Integer.parseInt(numStr);
 
 		//ここに記述する
+		System.out.println("探偵：");
+		System.out.println((num == 1) ? "不正解です。" : "正解です。");
 
 	}
-
 }

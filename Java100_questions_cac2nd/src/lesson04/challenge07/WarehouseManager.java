@@ -42,9 +42,25 @@ public class WarehouseManager {
 
 		int[] ABKosanArray = new int[5];
 
+		int intputNum = 0;
+		boolean loopFlag = false;
 
 		//ここに重複チェックおよび値の代入処理を記述する
-
+		for (int i = 0; i < ABKosanArray.length; i++) {
+			intputNum = (int) ((Math.random() * 5)) + 1;
+			for (int j : ABKosanArray) {
+				if (j == intputNum) {
+					loopFlag = true;
+					break;
+				}
+			}
+			if (loopFlag) {
+				loopFlag = false;
+				i--;
+				continue;
+			}
+			ABKosanArray[i] = intputNum;
+		}
 
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の並べ替えをお願いします。\n");
@@ -61,9 +77,8 @@ public class WarehouseManager {
 		}
 		System.out.println("\nです。\n");
 
-
 		//ここに昇順にソートする処理を記述する
-
+		ABKosanArray = sortAcd(ABKosanArray);
 
 		System.out.println("小さい順に並べ替えた後の状態は、");
 		for (int i = 0; i < ABKosanArray.length; i++) {
@@ -74,9 +89,8 @@ public class WarehouseManager {
 		}
 		System.out.println("\nです。\n");
 
-
 		//ここに降順にソートする処理を記述する
-
+		ABKosanArray = sortDecd(ABKosanArray);
 
 		System.out.println("大きい順に並べ替えた後の状態は、");
 		for (int i = 0; i < ABKosanArray.length; i++) {
@@ -87,4 +101,32 @@ public class WarehouseManager {
 		}
 		System.out.println("\nです。");
 	}
+
+	/** 昇順ソート */
+	public static int[] sortAcd(int[] intArray) {
+		return sortArray(intArray, true);
+	}
+
+	/** 降順ソート */
+	public static int[] sortDecd(int[] intArray) {
+		return sortArray(intArray, false);
+	}
+
+	/** ソート機能 */
+	private static int[] sortArray(int[] intArray, boolean bool) {
+		int tmp = 0;
+
+		for (int i = 0; i < intArray.length; i++) {
+			for (int j = 0; j < intArray.length - i - 1; j++) {
+				boolean swap = bool ? (intArray[j] > intArray[j + 1]) : (intArray[j] < intArray[j + 1]);
+				if (swap) {
+					tmp = intArray[j];
+					intArray[j] = intArray[j + 1];
+					intArray[j + 1] = tmp;
+				}
+			}
+		}
+		return intArray;
+	}
+
 }

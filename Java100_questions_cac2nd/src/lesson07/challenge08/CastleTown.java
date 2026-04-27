@@ -34,48 +34,86 @@ package lesson07.challenge08;
 
 class Samurai {
 
-    protected String name;
+	protected String name;
 
-    void fight() {
-        System.out.println("戦うよ～。");
-    }
+	void fight() {
+		System.out.println("戦うよ～。");
+	}
 
-    void work() {
-        System.out.println("何かして働くよ～");
-    }
+	void work() {
+		System.out.println("何かして働くよ～");
+	}
 
 }
 
-
 //ここにRetainerクラスを記述
+class Retainer extends Samurai {
 
+	protected String domain;
+
+	/**
+	 * @param name
+	 */
+	public Retainer(String domain, String name) {
+		this.domain = domain;
+		this.name = name;
+		System.out.println(this.toString());
+	}
+
+	void getPaid() {
+		System.out.println("給料をもらうよ～。");
+	}
+
+	@Override
+	public String toString() {
+		// TODO 自動生成されたメソッド・スタブ
+		return "拙者は" + domain + "藩士、" + name + "ともうす。";
+	}
+
+	@Override
+	void work() {
+		System.out.println("年貢を取り立てるよ～。");
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Retainer reta = (Retainer) obj;
+		return (this.domain.equals(reta.domain)) ? true : false;
+	}
+
+}
 
 public class CastleTown {
 
-    public static void main(String[] args) {
-        System.out.println("○△□藩の藩士を二つ作ります。\n");
+	public static void main(String[] args) {
+		System.out.println("○△□藩の藩士を二つ作ります。\n");
 
+		//ここに適切な処理を記述
+		Retainer reta1 = new Retainer("○△□", "テスト太郎");
+		Retainer reta2 = new Retainer("○△□", "テスト次郎");
 
-        //ここに適切な処理を記述
+		System.out.println("\n同じ藩に所属しているか確認します。\n");
 
+		//ここに適切な処理を記述
 
-        System.out.println("\n同じ藩に所属しているか確認します。\n");
+		if (reta1.equals(reta2)) {
+			System.out.println("【同じ藩に所属しています】");
+		} else {
+			System.out.println("【同じ藩に所属していません】");
+		}
 
+		System.out.println("\n○△×藩の藩士を一つ作ります。\n");
 
-        //ここに適切な処理を記述
+		//ここに適切な処理を記述
+		Retainer reta3 = new Retainer("×△×", "テスト三郎");
 
+		System.out.println("\n同じ藩に所属しているか確認します。\n");
 
-        System.out.println("\n○△×藩の藩士を一つ作ります。\n");
-
-
-        //ここに適切な処理を記述
-
-
-        System.out.println("\n同じ藩に所属しているか確認します。\n");
-
-
-        //ここに適切な処理を記述
-
-
-    }
+		//ここに適切な処理を記述
+		if (reta1.equals(reta3)) {
+			System.out.println("【同じ藩に所属しています】");
+		} else {
+			System.out.println("【同じ藩に所属していません】");
+		}
+	}
 }

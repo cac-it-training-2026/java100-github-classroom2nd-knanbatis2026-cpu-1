@@ -24,6 +24,7 @@ public class Patisserie {
 				"【ポエール・ネルメ】\r\n" + //
 				" ただいまより開店です！！");
 
+		System.out.println();
 		System.out.println("本日のおすすめ商品です。\n" +
 				" \n" + //
 				"シトロン      \\250\n" +

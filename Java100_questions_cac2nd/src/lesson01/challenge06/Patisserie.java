@@ -27,12 +27,14 @@ import java.io.InputStreamReader;
 
 public class Patisserie {
 	public static void main(String[] args) throws IOException {
-		System.out.println("たいへんお待たせしました。\r\n" + //
-				"【ポエール・ネルメ】\r\n" + //
-				" ただいまより開店です！！\n");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
 		int citron = 30;
 		int chocolat = 30;
 		int pistache = 30;
+		System.out.println("たいへんお待たせしました。\r\n" + //
+				"【ポエール・ネルメ】\r\n" + //
+				" ただいまより開店です！！\n");
 
 		System.out.println("本日のおすすめ商品です。\n" +
 				" \n" + //
@@ -42,12 +44,12 @@ public class Patisserie {
 
 		System.out.println("それぞれ何個ずつ買いますか？(最大30個まで)\n");
 
-		System.out.println("シトロン");
-		int citron_count = getInt();
-		System.out.println("ショコラ");
-		int chocolat_count = getInt();
-		System.out.println("ピスターシュ");
-		int pistache_count = getInt();
+		System.out.print("シトロン\t＞");
+		int citron_count = Integer.parseInt(br.readLine());
+		System.out.print("ショコラ\t＞");
+		int chocolat_count = Integer.parseInt(br.readLine());
+		System.out.print("ピスターシュ\t＞");
+		int pistache_count = Integer.parseInt(br.readLine());
 
 		System.out.println("\nシトロン\t" + citron_count + "個");
 		System.out.println("ショコラ\t" + chocolat_count + "個");
@@ -69,12 +71,5 @@ public class Patisserie {
 				"シトロン      ￥250 ・・・ 残り" + citron + "個\n" +
 				"ショコラ      ￥280 ・・・ 残り" + chocolat + "個\n" +
 				"ピスターシュ  ￥320 ・・・ 残り" + pistache + "個\n");
-	}
-
-	public static int getInt() throws IOException {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		String str = reader.readLine();
-		int num = Integer.parseInt(str);
-		return num;
 	}
 }
